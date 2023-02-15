@@ -21,7 +21,7 @@ class PubSub(Node):
 
         self.subscriber_ = self.create_subscription(
             LaserScan, '/scan', self.listener_callback,
-            QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT))
+            QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE))
 
         # setting the timer period
         self.timer_period = 0.5
