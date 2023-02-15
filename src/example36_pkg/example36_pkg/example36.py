@@ -19,7 +19,7 @@ class Example36(Node):
         self.publisher_ = self.create_publisher(Twist, 'cmd_vel', 10)
         # create the subscriber object
         self.subscriber = self.create_subscription(
-            LaserScan, '/scan', self.laser_callback, QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT))
+            LaserScan, '/scan', self.laser_callback, QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE))
         # define the timer period for 0.5 seconds
         self.timer_period = 0.5
         # define the variable to save the received info
