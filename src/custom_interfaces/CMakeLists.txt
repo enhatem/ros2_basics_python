@@ -15,11 +15,12 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# find dependencies
+# find dependencies (find_package : This is where all the packages required to COMPILE the messages for the topics, services, and actions go.)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(action_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -32,9 +33,11 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+# rosidl_generate_interfaces() : This function includes all of the messages for this package (in the msg, srv and action folders) to be compiled.
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Age.msg"
   "srv/MyCustomServiceMessage.srv"
+  "action/Move.action"
 )
 
 ament_package()

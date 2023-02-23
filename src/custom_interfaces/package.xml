@@ -11,6 +11,10 @@
   
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
+  <depend>action_msgs</depend>
+  <!-- This dependency was added suddenly in section 6.4 - I don't think we need it since we have build_depend for rosidl_default_generators and exe_depend for rosidl_default_runtime below
+  <depend>rosidl_default_generators</depend>
+  -->
 
 
   <test_depend>ament_lint_auto</test_depend>
