@@ -25,12 +25,10 @@ class ClientAsync(Node):
         self.req = MyCustomServiceMessage.Request()
 
     def send_request(self):
-
-        # send the request
-        self.req.move = sys.argv[1]
         # uses sys.argv to access command line input arguments for the request.
+        self.req.move = sys.argv[1]
+        # send the request
         self.future = self.client.call_async(self.req)
-        # to print in the console
 
 
 def main(args=None):
